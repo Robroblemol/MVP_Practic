@@ -1,4 +1,4 @@
-package views.activities;
+package com.raziel.tareamvp.views.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,13 +15,13 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import views.presenters.IPresenter;
-import views.presenters.Presenter;
+import com.raziel.tareamvp.views.presenters.IPresenter;
+import com.raziel.tareamvp.views.presenters.Presenter;
 
 public class MainActivity extends AppCompatActivity implements Iview {
 
     @BindView(R.id.btnCalcular)
-    Button btnCacular;
+    Button btnCalcular;
     @BindView(R.id.txtNombre)
     EditText txtNombre;
     @BindView(R.id.txtApellido)

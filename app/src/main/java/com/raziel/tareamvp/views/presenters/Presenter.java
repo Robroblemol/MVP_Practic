@@ -1,11 +1,11 @@
-package views.presenters;
+package com.raziel.tareamvp.views.presenters;
 
-import com.raziel.tareamvp.domain.domain.IIteratorMvp;
-import com.raziel.tareamvp.domain.domain.InteratorMvp;
+import com.raziel.tareamvp.domain.IIteratorMvp;
+import com.raziel.tareamvp.domain.InteratorMvp;
 
 import java.util.Date;
 
-import views.activities.Iview;
+import com.raziel.tareamvp.views.activities.Iview;
 
 /**
  * Created by raziel on 11/03/18.

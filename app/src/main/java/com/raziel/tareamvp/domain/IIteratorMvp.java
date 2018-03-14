@@ -1,4 +1,4 @@
-package com.raziel.tareamvp.domain.domain;
+package com.raziel.tareamvp.domain;
 
 import java.util.Date;
 

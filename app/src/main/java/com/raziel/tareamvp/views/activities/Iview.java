@@ -1,4 +1,4 @@
-package views.activities;
+package com.raziel.tareamvp.views.activities;
 
 /**
  * Created by raziel on 11/03/18.
@@ -9,7 +9,7 @@ public interface Iview {
 
     void ocultarLoading();
 
-    void onClickInfo();
+    //void onClickInfo();
 
     void mostrarError(String msg);
 

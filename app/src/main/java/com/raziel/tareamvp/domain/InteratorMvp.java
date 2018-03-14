@@ -1,6 +1,6 @@
-package com.raziel.tareamvp.domain.domain;
+package com.raziel.tareamvp.domain;
 
-import com.raziel.tareamvp.domain.domain.IIteratorMvp;
+import com.raziel.tareamvp.domain.IIteratorMvp;
 
 import java.util.Date;
 
