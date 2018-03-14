@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">tareaMVP</string>
+    <string name="fecha_nacimiento">fecha de nacimiento</string>
+    <string name="apellido">Apellido</string>
+    <string name="name">Nombre</string>
+    <string name="calcular">calcular</string>
+</resources>
