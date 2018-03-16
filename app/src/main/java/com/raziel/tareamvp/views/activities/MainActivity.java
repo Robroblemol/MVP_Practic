@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -25,8 +26,10 @@ public class MainActivity extends AppCompatActivity implements Iview {
     EditText txtNombre;
     @BindView(R.id.txtApellido)
     EditText txtApellido;
-    @BindView(R.id.txtFecha)
-    EditText txtFecha;
+    //@BindView(R.id.txtFecha)
+    //EditText txtFecha;
+    @BindView (R.id.datePicker)
+    DatePicker dPicker;
     @BindView(R.id.btnCalcular)
     Button btnCalcular;
 
@@ -61,8 +64,8 @@ public class MainActivity extends AppCompatActivity implements Iview {
         /* Toast.makeText(this, "Me presionaron!!!", Toast.LENGTH_SHORT).show(); */
         String name = txtNombre.getText().toString();
         String lastName = txtApellido.getText().toString();
-        Editable date = txtFecha.getText();
-        Log.i("MainActivity", "date: "+date.toString());
+        int date = dPicker.getYear();
+        Log.i("MainActivity", "date: "+date);
 
         presenter.showInf(name,lastName,date);
 

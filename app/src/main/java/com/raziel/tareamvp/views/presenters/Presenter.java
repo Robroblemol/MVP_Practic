@@ -24,7 +24,7 @@ public class Presenter implements  IPresenter{
     }
 
     @Override
-    public void showInf(String name, String lastName, Editable date) {
+    public void showInf(String name, String lastName, int date) {
         try{
             view.mostrarLoading();
             String info = mvp.showInf(name,lastName, date);

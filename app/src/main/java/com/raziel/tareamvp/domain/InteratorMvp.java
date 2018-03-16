@@ -17,18 +17,18 @@ import java.util.Date;
 
 public class InteratorMvp implements IIteratorMvp {
     @Override
-    public String showInf(String name, String lastName, Editable date){
+    public String showInf(String name, String lastName, int date){
 
         Date today;
         today = new Date();
 
         String y = getYear(today.toString());
-        String d = getYear(date.toString());
+        //String d = getYear(date.toString());
 
         int r = 0;
 
         try{
-            r=Integer.parseInt(y)-Integer.parseInt(d);
+            r=Integer.parseInt(y)-date;
         }catch (NumberFormatException nfe){
             Log.i("MainActivity",nfe.toString());
         }

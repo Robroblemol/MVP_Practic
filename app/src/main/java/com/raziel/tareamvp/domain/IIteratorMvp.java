@@ -9,5 +9,5 @@ import android.text.Editable;
  */
 
 public interface IIteratorMvp {
-    String showInf(String name, String lastName, Editable date);
+    String showInf(String name, String lastName, int date);
 }
