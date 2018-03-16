@@ -1,5 +1,7 @@
 package com.raziel.tareamvp.views.presenters;
 
+import android.text.Editable;
+
 import java.util.Date;
 
 /**
@@ -7,5 +9,5 @@ import java.util.Date;
  */
 
 public interface IPresenter {
-    void showInf(String name, String lastName, Date date);
+    void showInf(String name, String lastName, Editable date);
 }

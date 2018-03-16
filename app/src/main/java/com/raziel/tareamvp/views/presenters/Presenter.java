@@ -1,5 +1,7 @@
 package com.raziel.tareamvp.views.presenters;
 
+import android.text.Editable;
+
 import com.raziel.tareamvp.domain.IIteratorMvp;
 import com.raziel.tareamvp.domain.InteratorMvp;
 
@@ -22,7 +24,7 @@ public class Presenter implements  IPresenter{
     }
 
     @Override
-    public void showInf(String name, String lastName, Date date) {
+    public void showInf(String name, String lastName, Editable date) {
         try{
             view.mostrarLoading();
             String info = mvp.showInf(name,lastName, date);
@@ -32,4 +34,5 @@ public class Presenter implements  IPresenter{
             view.mostrarError(e.getMessage());
         }
     }
+
 }

@@ -9,7 +9,7 @@ public interface Iview {
 
     void ocultarLoading();
 
-    //void onClickInfo();
+    void onClickInfo();
 
     void mostrarError(String msg);
 

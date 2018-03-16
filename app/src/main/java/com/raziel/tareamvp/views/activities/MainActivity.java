@@ -2,6 +2,7 @@ package com.raziel.tareamvp.views.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,14 +21,14 @@ import com.raziel.tareamvp.views.presenters.Presenter;
 
 public class MainActivity extends AppCompatActivity implements Iview {
 
-    @BindView(R.id.btnCalcular)
-    Button btnCalcular;
     @BindView(R.id.txtNombre)
     EditText txtNombre;
     @BindView(R.id.txtApellido)
     EditText txtApellido;
     @BindView(R.id.txtFecha)
     EditText txtFecha;
+    @BindView(R.id.btnCalcular)
+    Button btnCalcular;
 
     private IPresenter presenter;
 
@@ -57,11 +58,11 @@ public class MainActivity extends AppCompatActivity implements Iview {
 
     @OnClick(R.id.btnCalcular)
     public void onClickInfo() {
-        Toast.makeText(this, "Me presionaron!!!", Toast.LENGTH_SHORT).show();
-        Log.i("MainActivity", ">>> Presionado calcular");
+        /* Toast.makeText(this, "Me presionaron!!!", Toast.LENGTH_SHORT).show(); */
         String name = txtNombre.getText().toString();
         String lastName = txtApellido.getText().toString();
-        Date date = (Date) txtFecha.getText();
+        Editable date = txtFecha.getText();
+        Log.i("MainActivity", "date: "+date.toString());
 
         presenter.showInf(name,lastName,date);
 
@@ -76,7 +77,8 @@ public class MainActivity extends AppCompatActivity implements Iview {
 
     @Override
     public void mostrarInfo(String info) {
+        Log.i("MainActivity",""+info);
         Toast.makeText(this,
-                "La suma es:" + info, Toast.LENGTH_SHORT).show();
+                " " + info, Toast.LENGTH_LONG).show();
     }
 }
