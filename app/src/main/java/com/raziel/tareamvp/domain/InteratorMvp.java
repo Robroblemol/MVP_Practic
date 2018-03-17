@@ -2,6 +2,7 @@ package com.raziel.tareamvp.domain;
 
 import android.text.Editable;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.raziel.tareamvp.domain.IIteratorMvp;
 
@@ -29,14 +30,20 @@ public class InteratorMvp implements IIteratorMvp {
 
         try{
             r=Integer.parseInt(y)-date;
-        }catch (NumberFormatException nfe){
-            Log.i("MainActivity",nfe.toString());
+        }catch (NumberFormatException nfe) {
+            Log.i("MainActivity", nfe.toString());
         }
-
 
         return "Nombre: "+name+" Apellido: "+lastName+" Edad: "+(r);
 
     }
+
+    @Override
+    public void showNegativeAnwer() {
+        Log.i("InteratorMvP","repuesta negativa");
+    }
+
+
     public  String getYear(String d){
         String y = d.substring(d.length()-4);
         return y;

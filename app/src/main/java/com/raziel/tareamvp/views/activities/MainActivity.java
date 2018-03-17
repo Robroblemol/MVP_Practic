@@ -1,5 +1,6 @@
 package com.raziel.tareamvp.views.activities;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -10,9 +11,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.raziel.tareamvp.R;
-
-import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements Iview {
     @BindView(R.id.btnCalcular)
     Button btnCalcular;
 
+
     private IPresenter presenter;
 
     @Override
@@ -43,7 +45,8 @@ public class MainActivity extends AppCompatActivity implements Iview {
 
         presenter = new Presenter(this);
 
-        Toast.makeText(this, "Test Toast", Toast.LENGTH_SHORT).show();
+
+       // Toast.makeText(this, "Test Toast", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -62,12 +65,34 @@ public class MainActivity extends AppCompatActivity implements Iview {
     @OnClick(R.id.btnCalcular)
     public void onClickInfo() {
         /* Toast.makeText(this, "Me presionaron!!!", Toast.LENGTH_SHORT).show(); */
-        String name = txtNombre.getText().toString();
-        String lastName = txtApellido.getText().toString();
-        int date = dPicker.getYear();
-        Log.i("MainActivity", "date: "+date);
+        //Log.i("MainActivity", "date: "+date);
 
-        presenter.showInf(name,lastName,date);
+        MaterialDialog.Builder builder = new MaterialDialog.Builder(this)
+                .positiveText(R.string.agree)
+                .negativeText(R.string.disagree)
+                .title(R.string.title)
+                .content(R.string.content)
+               .onPositive(new MaterialDialog.SingleButtonCallback() {
+                   @Override
+                   public void onClick( MaterialDialog dialog, DialogAction which) {
+                       String name = txtNombre.getText().toString();
+                       String lastName = txtApellido.getText().toString();
+                       int date = dPicker.getYear();
+                       presenter.showInf(name,lastName,date);
+                   }
+               })
+                .onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(MaterialDialog dialog, DialogAction which) {
+                        presenter.showNegativeAnwer();
+                    }
+                });
+
+        MaterialDialog dialog =builder.build();
+
+        dialog.show();
+
+        //presenter.showInf(name,lastName,date);
 
     }
 
@@ -83,5 +108,11 @@ public class MainActivity extends AppCompatActivity implements Iview {
         Log.i("MainActivity",""+info);
         Toast.makeText(this,
                 " " + info, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showNegativeAnwer() {
+        Toast.makeText(this,
+                "Ok registro cancelado", Toast.LENGTH_LONG).show();
     }
 }

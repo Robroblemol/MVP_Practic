@@ -10,4 +10,5 @@ import java.util.Date;
 
 public interface IPresenter {
     void showInf(String name, String lastName, int date);
+    void showNegativeAnwer();
 }

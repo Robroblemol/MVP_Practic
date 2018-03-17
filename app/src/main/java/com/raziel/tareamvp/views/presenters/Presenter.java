@@ -22,7 +22,10 @@ public class Presenter implements  IPresenter{
         this.view = view;
         mvp = new InteratorMvp();
     }
-
+    @Override
+    public void showNegativeAnwer(){
+        view.showNegativeAnwer();
+    }
     @Override
     public void showInf(String name, String lastName, int date) {
         try{

@@ -1,6 +1,6 @@
 package com.raziel.tareamvp.domain;
 
-import android.text.Editable;
+
 
 
 
@@ -10,4 +10,5 @@ import android.text.Editable;
 
 public interface IIteratorMvp {
     String showInf(String name, String lastName, int date);
+    void  showNegativeAnwer();
 }

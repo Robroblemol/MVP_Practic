@@ -14,4 +14,6 @@ public interface Iview {
     void mostrarError(String msg);
 
     void mostrarInfo(String info);
+
+    void  showNegativeAnwer();
 }

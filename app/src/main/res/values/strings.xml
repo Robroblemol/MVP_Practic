@@ -4,4 +4,8 @@
     <string name="apellido">Apellido</string>
     <string name="name">Nombre</string>
     <string name="registrar">registrar</string>
+    <string name="title">Confirmacion registro</string>
+    <string name="content">Desea realizar el registro?</string>
+    <string name="agree">Aceptar</string>
+    <string name="disagree">Cancelar</string>
 </resources>
