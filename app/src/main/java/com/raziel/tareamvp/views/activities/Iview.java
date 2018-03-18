@@ -11,9 +11,13 @@ public interface Iview {
 
     void onClickInfo();
 
+    void onClickFecha();
+
     void mostrarError(String msg);
 
     void mostrarInfo(String info);
 
     void  showNegativeAnwer();
+
+    String showDate();
 }

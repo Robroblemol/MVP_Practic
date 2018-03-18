@@ -1,12 +1,11 @@
 package com.raziel.tareamvp.views.activities;
 
-import android.support.annotation.NonNull;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -27,10 +26,10 @@ public class MainActivity extends AppCompatActivity implements Iview {
     EditText txtNombre;
     @BindView(R.id.txtApellido)
     EditText txtApellido;
-    //@BindView(R.id.txtFecha)
-    //EditText txtFecha;
-    @BindView (R.id.datePicker)
-    DatePicker dPicker;
+    @BindView(R.id.txtFecha)
+    EditText txtFecha;
+    //@BindView (R.id.datePicker)
+    //DatePicker dPicker;
     @BindView(R.id.btnCalcular)
     Button btnCalcular;
 
@@ -61,6 +60,16 @@ public class MainActivity extends AppCompatActivity implements Iview {
         //progress ocultar
         Log.i("MainActivity", "Ocultando Loading");
     }
+    @OnClick(R.id.txtFecha)
+    public void onClickFecha() {
+        boolean wrapInScrollView = false;
+        new MaterialDialog.Builder(this)
+                .title(R.string.select_date)
+                .customView(R.layout.calendar_layout, wrapInScrollView)
+                .positiveText(R.string.positive)
+                .show();
+    }
+
 
     @OnClick(R.id.btnCalcular)
     public void onClickInfo() {
@@ -77,7 +86,8 @@ public class MainActivity extends AppCompatActivity implements Iview {
                    public void onClick( MaterialDialog dialog, DialogAction which) {
                        String name = txtNombre.getText().toString();
                        String lastName = txtApellido.getText().toString();
-                       int date = dPicker.getYear();
+                       int date = Integer.parseInt(txtFecha.getText().toString());
+                       //Editable date = txtFecha.getText();
                        presenter.showInf(name,lastName,date);
                    }
                })
@@ -114,5 +124,10 @@ public class MainActivity extends AppCompatActivity implements Iview {
     public void showNegativeAnwer() {
         Toast.makeText(this,
                 "Ok registro cancelado", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public String showDate() {
+        return null;
     }
 }

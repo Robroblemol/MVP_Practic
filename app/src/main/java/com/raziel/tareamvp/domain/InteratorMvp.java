@@ -2,8 +2,10 @@ package com.raziel.tareamvp.domain;
 
 import android.text.Editable;
 import android.util.Log;
+import android.widget.DatePicker;
 import android.widget.Toast;
 
+import com.raziel.tareamvp.R;
 import com.raziel.tareamvp.domain.IIteratorMvp;
 
 import java.sql.Time;
@@ -41,6 +43,12 @@ public class InteratorMvp implements IIteratorMvp {
     @Override
     public void showNegativeAnwer() {
         Log.i("InteratorMvP","repuesta negativa");
+    }
+
+    @Override
+    public String showDate() {
+        //DatePicker date = new DatePicker(R.layout.calendar_layout);
+        return null;
     }
 
 

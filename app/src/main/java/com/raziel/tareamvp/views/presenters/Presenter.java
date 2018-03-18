@@ -1,11 +1,7 @@
 package com.raziel.tareamvp.views.presenters;
 
-import android.text.Editable;
-
 import com.raziel.tareamvp.domain.IIteratorMvp;
 import com.raziel.tareamvp.domain.InteratorMvp;
-
-import java.util.Date;
 
 import com.raziel.tareamvp.views.activities.Iview;
 
@@ -25,6 +21,10 @@ public class Presenter implements  IPresenter{
     @Override
     public void showNegativeAnwer(){
         view.showNegativeAnwer();
+    }
+    @Override
+    public void showDate(){
+        view.showDate();
     }
     @Override
     public void showInf(String name, String lastName, int date) {

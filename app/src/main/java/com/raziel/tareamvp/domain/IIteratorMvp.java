@@ -11,4 +11,5 @@ package com.raziel.tareamvp.domain;
 public interface IIteratorMvp {
     String showInf(String name, String lastName, int date);
     void  showNegativeAnwer();
+    String showDate();
 }
