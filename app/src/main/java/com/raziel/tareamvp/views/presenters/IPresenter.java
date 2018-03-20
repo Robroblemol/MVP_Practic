@@ -5,7 +5,7 @@ package com.raziel.tareamvp.views.presenters;
  */
 
 public interface IPresenter {
-    void showInf(String name, String lastName, int date);
+    void showInf(String name, String lastName, String date);
     void showNegativeAnwer();
     void showDate();
 }

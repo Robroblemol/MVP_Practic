@@ -1,11 +1,14 @@
 package com.raziel.tareamvp.views.activities;
 
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -61,12 +64,34 @@ public class MainActivity extends AppCompatActivity implements Iview {
         Log.i("MainActivity", "Ocultando Loading");
     }
     @OnClick(R.id.txtFecha)
-    public void onClickFecha() {
+    public void onClickFecha(final View v ) {
         boolean wrapInScrollView = false;
         new MaterialDialog.Builder(this)
                 .title(R.string.select_date)
                 .customView(R.layout.calendar_layout, wrapInScrollView)
                 .positiveText(R.string.positive)
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+
+                        View calendarView = dialog.getCustomView();//obtengo la vista del activity
+                        //traigo el pickerdate y lo guardo
+                        try{
+                            DatePicker dpCalendar = calendarView.findViewById(R.id.dtPicker);
+                            int yyyy = dpCalendar.getYear(); // sacamos el año
+                            int mm = dpCalendar.getMonth();
+                            int dd = dpCalendar.getDayOfMonth();
+                            Log.i("mainactivity","y: "+yyyy);
+                            EditText txtFecha = (EditText) v;//? traemos la vista original?
+                            txtFecha.setText(dd+"/"+mm+"/"+yyyy);//meto la fecha en el layout original?
+
+                        }catch (Exception e){
+                            Log.e("mainactivity","error"+e);
+                        }
+                        dialog.dismiss();
+
+                    }
+                })
                 .show();
     }
 
@@ -86,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements Iview {
                    public void onClick( MaterialDialog dialog, DialogAction which) {
                        String name = txtNombre.getText().toString();
                        String lastName = txtApellido.getText().toString();
-                       int date = Integer.parseInt(txtFecha.getText().toString());
+                       String  date = txtFecha.getText().toString();
                        //Editable date = txtFecha.getText();
                        presenter.showInf(name,lastName,date);
                    }
@@ -104,6 +129,11 @@ public class MainActivity extends AppCompatActivity implements Iview {
 
         //presenter.showInf(name,lastName,date);
 
+    }
+
+    @Override
+    public void onClickFecha() {
+        Log.i("ManActivity","click en fecha");
     }
 
     @Override

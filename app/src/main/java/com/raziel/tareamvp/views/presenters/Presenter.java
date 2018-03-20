@@ -27,7 +27,7 @@ public class Presenter implements  IPresenter{
         view.showDate();
     }
     @Override
-    public void showInf(String name, String lastName, int date) {
+    public void showInf(String name, String lastName, String date) {
         try{
             view.mostrarLoading();
             String info = mvp.showInf(name,lastName, date);
